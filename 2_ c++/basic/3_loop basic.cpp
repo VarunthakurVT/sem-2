@@ -1,0 +1,1 @@
+//loop are of two types entery loop(while and for ) and exit loop (do while loop)
