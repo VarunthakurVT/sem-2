@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Timer</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        #display { font-size: 48px; margin: 20px; }
+        button { font-size: 20px; padding: 10px 20px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Basic Stopwatch</h1>
+    <div id="display">00:00</div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        let intervalId = null;
+        let time = 0;  // in seconds
+
+        function updateDisplay() {
+            const mins = Math.floor(time / 60);
+            const secs = time % 60;
+            document.getElementById('display').textContent =
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        document.getElementById('start').onclick = () => {
+            if (intervalId) return;  // Prevent multiple starts
+            intervalId = setInterval(() => {
+                time++;
+                updateDisplay();
+            }, 1000);
+        };
+
+        document.getElementById('stop').onclick = () => {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        };
+
+        document.getElementById('reset').onclick = () => {
+            clearInterval(intervalId);
+            intervalId = null;
+            time = 0;
+            updateDisplay();
+        };
+    </script>
+</body>
+</html>
