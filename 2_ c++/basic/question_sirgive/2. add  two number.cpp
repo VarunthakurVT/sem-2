@@ -10,3 +10,4 @@ int main(){
     }
     cout<<a;
 }
+//this is used to add two number with bitwise operator 
