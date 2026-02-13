@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; }
+        #display { font-size: 48px; margin: 20px; color: #333; }
+        input { font-size: 24px; padding: 10px; width: 80px; }
+        button { font-size: 20px; padding: 10px 20px; margin: 10px; }
+        .done { color: red; font-size: 60px; }
+    </style>
+</head>
+<body>
+    <h1>Countdown Timer</h1>
+    <p>Enter seconds (e.g., 15):</p>
+    <input type="number" id="secondsInput" min="1" value="00">
+    <br>
+    <div id="display">00:00</div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+
+    <script>
+        let intervalId = null;
+        let timeLeft = 0;  // in seconds
+
+        const display = document.getElementById('display');
+        const input = document.getElementById('secondsInput');
+
+        function updateDisplay() {
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            display.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            if (timeLeft === 0) {
+                display.textContent = 'Time\'s up!';
+                display.classList.add('done');
+            }
+        }
+
+        document.getElementById('start').onclick = () => {
+            timeLeft = parseInt(input.value) || 0;
+            if (timeLeft <= 0 || intervalId) return;
+            updateDisplay();
+            intervalId = setInterval(() => {
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    updateDisplay();
+                } else {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                }
+            }, 1000);
+        };
+
+        document.getElementById('stop').onclick = () => {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        };
+
+        document.getElementById('reset').onclick = () => {
+            clearInterval(intervalId);
+            intervalId = null;
+            timeLeft = 0;
+            display.textContent = '00:00';
+            display.classList.remove('done');
+            input.value = '15';
+        };
+    </script>
+</body>
+</html>
