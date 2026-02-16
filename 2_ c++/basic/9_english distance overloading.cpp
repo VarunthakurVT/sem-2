@@ -4,7 +4,7 @@ using namespace std;
 class Distance {
 private:
     int feet;
-    float inch;  
+    float inch;
 
 public:
     Distance() {
@@ -25,9 +25,10 @@ public:
     }
 
     void show() {
-        cout << feet << " feet " << inch << " inches" << endl;
+        cout << feet << "' " << inch << "\""<< endl;
     }
-    Distance Add(Distance d2) {
+
+    Distance Add(Distance d2) {  // Adds this (t1) + d2 (t2)
         Distance d;
         d.inch = inch + d2.inch;
         d.feet = feet + d2.feet;
@@ -36,22 +37,15 @@ public:
             d.feet++;
         }
         return d;
-        Distance Add2(Distance d1,Distance d2) {
-            d.inchtotal=d1.feet+d2.feet;
-            d.feettotal=d1.inch+d2.inch;
-            return d.inchtotal;
-            return d.feettotal;
-        }
-        
     }
 };
 
 int main() {
-    Distance d1, d2(10, 5.5), d3;
-    d1.getData();
-    d3 = d1.Add(d2);
-    d1.show();
-    d2.show();
-    d3.show();
+    Distance t1, t2(10, 5.5), sum;
+    t1.getData();  // Input for t1
+    sum = t1.Add(t2);  // sum = t1 + t2
+    t1.show();
+    t2.show();
+    sum.show();
     return 0;
 }
