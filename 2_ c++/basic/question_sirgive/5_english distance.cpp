@@ -44,6 +44,7 @@ int main() {
     Distance d1, d2(10, 5.5), d3;
     d1.getData();
     d3 = d1.Add(d2);
+    
     d1.show();
     d2.show();
     d3.show();
