@@ -19,6 +19,7 @@ class car
     };
     int main(){
         car c1,c2;//you can make by array to make this  and apply the loop 
+        
         c1.getData();
         c2.getData();
         c1.showdata();
