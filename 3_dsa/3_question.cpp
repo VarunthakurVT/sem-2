@@ -9,10 +9,15 @@ class Node{
         next=NULL;
     }
 };
+Node* insertatstart(Node*head,int x){
+    Node*n5=new Node(x);
+    n5->next=head;
+    return n5;
+}
 void display(Node*head){
-    Node*p=head;
+    Node*p=head;  
     while(p){
-        cout<<p->data<<"->",
+        cout<<p->data<<"->";
         p=p->next;}
         cout<<"node";
     }
@@ -23,5 +28,9 @@ int main(){
     n1->next=n2;
     n2->next=n3;
     display(n1);
+    Node*z;
+    z=insertatstart(n1,5);
+    
+    return 0;
 
 }
