@@ -1,0 +1,20 @@
+{
+  "name": "sem-2",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000s\u0000e\u0000m\u0000-\u00002\u0000\r\u0000 \u0000",
+  "homepage": "https://github.com/VarunthakurVT/sem-2#readme",
+  "bugs": {
+    "url": "https://github.com/VarunthakurVT/sem-2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VarunthakurVT/sem-2.git"
+  },
+  "license": "ISC",
+  "author": "& cd \"c:\\uni work\\sem 2\\1_backend\\basics node js\" ; & clear ; & \"node\" \"c:\\uni work\\sem 2\\1_backend\\basics node js\\8_path module.js\" ;",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
