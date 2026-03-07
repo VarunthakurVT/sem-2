@@ -6,7 +6,7 @@ class car
     char model[20];
     float price;
     public:
-    void showdata(){
+    void showdata(){ // there we create two method to get and show data 
    cout<<"model:"<<model<<endl;
    cout<<"Price:"<<price;
     }
