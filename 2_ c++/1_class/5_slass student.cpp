@@ -1,3 +1,3 @@
-#include<iostream>
-class student{
-    private   
+// #include<iostream>
+// class student{
+//     private   

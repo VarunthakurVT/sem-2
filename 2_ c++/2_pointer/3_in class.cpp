@@ -6,18 +6,16 @@ using namespace std;
         int feet;
         int inch;
         public:
-        {
+  
             void getDistance(){
             cout<<"Enter feet";
             cin>>feet;
             cout<<"enter inch";
             cin>>inch;
         }
-        }
-        void show{
+        void show(){
             cout<<feet<<"inch"<<inch;
-
-        }
+     }
     };
    int main(){
     Distance d;
