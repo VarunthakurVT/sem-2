@@ -10,7 +10,7 @@ const app=http.createServer((req,res)=>{
  const myPath=path.parse(indexLocation)
  console.log(myPath)
 })
-   
+     
 app.listen(3000,()=>{
     console.log("server is running at http://Localhost:3000");
 
