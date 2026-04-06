@@ -38,8 +38,7 @@ int main() {
 //  cout<<bin;
 // for octal 
  
-int n
-, bin=0,place=1,pos=0;
+int n, bin=0,place=1,pos=0;
  cout<<"Enter a number";
  cin>>n;
  while(n>0){

@@ -12,4 +12,10 @@ setTimeout(()=>{
  
 
     //async code js run time 
-    // call stack  
+    // call stack   
+    //this is for practice 
+    console.log("varun")
+    setTimeout(()=>{
+        let timer=setTimeout(()=>{
+        console.log("i will run after 2 sec")},2000)
+    })
