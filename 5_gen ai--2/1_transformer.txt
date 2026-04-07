@@ -1,0 +1,48 @@
+Trasformer.. it is the type of nn
+  to handle sequence to sequence data
+  machine translation 
+  question answering 
+  text summarization 
+  research paper -- attention is all you need 
+
+  ---types of transformer architecture 
+  1..encoder only ->auto encoding model (BERT (sentimental analysis))
+  2..decoder only 
+  3..encoder decoder
+
+  ---decoder only 
+      -Autoregressive model 
+        -- model predict the next token in  sequence based on previous token  
+        open AI  GPT(GPT-3 GPT-4)
+    --encoder-decoder
+                --sequence to sequence based model 
+            encoder--provides and understand the input data 
+            decoder--generate the output data 
+            
+    application of llm model--
+    T5 model (text to text transformer)
+    -BART ->SENTIMENT analysis
+    
+
+----advantage in transformer
+1) high scalability 
+2)use transfer learning 
+3)multimodel input and output
+4)flexible architecture
+5)good eco system 
+6) integrated other ai technique
+
+---disadvantage
+1)required high computational resources
+ 2) required lot of data
+ 3)overfilling
+ 4) high energy consumption 
+ 5) baised 
+ 6) ethical concern 
+
+
+  application of transformer
+  1)chat gpt
+  2)dell-E
+  3)alpha fold
+  4)open ai code-X(git hub copilot)

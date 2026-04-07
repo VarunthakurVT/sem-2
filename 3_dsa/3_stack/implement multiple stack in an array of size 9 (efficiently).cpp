@@ -2,63 +2,81 @@
 using namespace std;
 
 class MultiStack {
-    int *arr;       // The data array (size n)
-    int *top;       // Top indices of k stacks
-    int *next;      // Next item or next free slot
-    int n, k;
-    int free;       // Beginning of the free list
+    int size;
+    int* arr;
+    int top1, top2;
 
 public:
-    MultiStack(int k1, int n1) {
-        k = k1; n = n1;
+    MultiStack(int n) {
+        size = n;
         arr = new int[n];
-        top = new int[k];
-        next = new int[n];
-
-        // Initialize all stacks as empty
-        for (int i = 0; i < k; i++) top[i] = -1;
-
-        // Initialize all slots as free
-        free = 0;
-        for (int i = 0; i < n - 1; i++) next[i] = i + 1;
-        next[n - 1] = -1; // End of free list
+        top1 = -1;       // Starts before the first index
+        top2 = size;     // Starts after the last index
     }
 
-    void push(int item, int sn) {
-        if (free == -1) {
-            cout << "Stack Overflow\n";
-            return;
+    // Push into Stack 1
+    void push1(int val) {
+        if (top1 < top2 - 1) { // Check if there is space between tops
+            arr[++top1] = val;
+        } else {
+            cout << "Stack Overflow in Stack 1" << endl;
         }
-
-        int i = free;      // Get first free slot
-        free = next[i];    // Update free to next available slot
-        next[i] = top[sn]; // Link new item to old top
-        top[sn] = i;       // Update top to new index
-        arr[i] = item;     // Put item in array
     }
 
-    int pop(int sn) {
-        if (top[sn] == -1) {
-            cout << "Stack Underflow\n";
+    // Push into Stack 2
+    void push2(int val) {
+        if (top1 < top2 - 1) {
+            arr[--top2] = val;
+        } else {
+            cout << "Stack Overflow in Stack 2" << endl;
+        }
+    }
+
+    // Pop from Stack 1
+    int pop1() {
+        if (top1 >= 0) {
+            return arr[top1];
+            top1--;
+        } else {
+            cout << "Stack 1 Underflow" << endl;
             return -1;
         }
+    }
 
-        int i = top[sn];   // Get current top index
-        top[sn] = next[i]; // Update top to previous item
-        next[i] = free;    // Add this slot back to free list
-        free = i;
+    // Pop from Stack 2
+    int pop2() {
+        if (top2 < size) {
+            return arr[top2];
+            top2++;
+        } else {
+            cout << "Stack 2 Underflow" << endl;
+            return -1;
+        }
+    }
 
-        return arr[i];
+    void printStacks() {
+        cout << "Stack 1: ";
+        for (int i = 0; i <= top1; i++) cout << arr[i] << " ";
+        cout << "\nStack 2: ";
+        for (int i = size - 1; i >= top2; i--) cout << arr[i] << " ";
+        cout << endl;
     }
 };
 
 int main() {
-    MultiStack ms(3, 9); // 3 stacks, total size 9
+    MultiStack ms(6); // One array of size 6 for both stacks
 
-    ms.push(10, 0); // Push 10 to stack 0
-    ms.push(20, 0);
-    ms.push(5, 1);  // Push 5 to stack 1
+    ms.push1(10);
+    ms.push1(20);
+    ms.push2(100);
+    ms.push2(90);
+    ms.push2(80);
+
+    ms.printStacks();
+
+    cout << "Popped from Stack 2: " << ms.pop2() << endl;
     
-    cout << "Popped from stack 0: " << ms.pop(0) << endl;
+    ms.printStacks();
+
     return 0;
 }
