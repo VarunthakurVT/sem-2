@@ -1,0 +1,24 @@
+# Python RAG System Dockerfile
+FROM python:3.11-slim
+
+WORKDIR /app/rag
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY 5_gen\ ai--2/requirements.txt ./requirements.txt 2>/dev/null || echo "# No requirements.txt yet" > ./requirements.txt
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt || echo "Skipping pip install - requirements.txt may be empty"
+
+# Copy RAG source code
+COPY 5_gen\ ai--2/ .
+
+# Expose port
+EXPOSE 5000
+
+# Start Flask app (placeholder - create app.py with your RAG logic)
+CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
