@@ -19,16 +19,16 @@ class Distance
     }
     void getData()
     {
-        cout<<"\n Enetr Feet : ";
+        cout<<"\n Enter Feet : ";
         cin>>feet;
         cout<<"\n Enter inch : ";
         cin>>inch;
     }
 
-    void show(){
+    void show()const {
         cout<<endl<<feet<<"\',"<<inch<<"\''";
     }
-    Distance AddData (Distance d2)
+    Distance AddData (const Distance &d2)const
     {
 
         Distance d;
@@ -45,13 +45,13 @@ class Distance
 
 int main()
 {
-    Distance d1,d2,d3,d4;
+   Distance d1, d2, d4;
     d1.getData();
     d2.getData();
-    d3.getData();
-    d4=d1.AddData(d2);
+    d4 = d1.AddData(d2);
     d1.show();
     d2.show();
-    d3.show();
+   
     d4.show();
+    return 0; 
 }

@@ -15,6 +15,7 @@ int main() {
     int index = 0;
     int n = a;
 
+
     while (n > 0) {
         int digit = n % 16;
         if (digit < 10) {
@@ -24,7 +25,6 @@ int main() {
         }
         n /= 16;
     }
-
     cout << "Hexadecimal: ";
     for (int i = index - 1; i >= 0; --i) {
         cout << hex[i];
