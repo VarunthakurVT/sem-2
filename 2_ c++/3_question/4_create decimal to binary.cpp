@@ -32,7 +32,7 @@ int main() {
 //  while(n>0){
 //     pos=n%2;
 //     bin=bin+pos*place;
-//     place*=10;
+//     place*=10;qwee
 //     n=n/2;
 //  }
 //  cout<<bin;
